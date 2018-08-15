@@ -2,6 +2,10 @@
   padding: 154px 0 100px;
 }
 
+.navbar-brand {
+  font-family: 'Lobster', cursive;
+  text-transform: capitalize
+}
 @media (min-width: 992px) {
   .dashboard {
     padding: 156 0 100px;
