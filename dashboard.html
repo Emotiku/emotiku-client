@@ -10,10 +10,18 @@
   <link rel="stylesheet" href="./css/bootstrap.css">
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <title>Emotiku</title>
 </head>
 
 <body>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.1&appId=2190548590958522&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   <div id="app">
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-emotiku" id="top-nav">
       <div class="container">
@@ -24,28 +32,27 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-      </div>
-    </nav>
-
-    <section class="auth-section">
-      <div class="container">
-
-        <div class="auth-content">
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login-content" role="tab">Login</a>
+              <a class="nav-link js-scroll-trigger" href="javascript:void()" data-toggle="modal" data-target="#new-post-modal">
+                <i class="fas fa-images"></i>
+                UPLOAD
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="register-tab" data-toggle="tab" href="#register-content" role="tab">Register</a>
+              <a class="nav-link js-scroll-trigger" href="javascript:void()" @click="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                LOGOUT
+              </a>
             </li>
           </ul>
-
-          <div class="tab-content mt-3" id="myTabContent">
-            <login></login>
-            <register></register>
-          </div>
         </div>
-
+      </div>
+    </nav>
+    <section class="dashboard">
+      <div class="container">
+        <post-management ></post-management>
       </div>
     </section>
     <footer class="footer-emotiku text-white">
@@ -55,24 +62,31 @@
         </div>
       </div>
     </footer>
+    <new-post></new-post>
   </div>
   <script src="./js/jquery.js"></script>
   <script src="./js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <script src="./components/login.js"></script>
-  <script src="./components/register.js"></script>
+  <script src="./components/post-management.js"></script>
+  <script src="./components/post-list.js"></script>
+  <script src="./components/selected-post.js"></script>
+  <script src="./components/new-post.js"></script>
   <script>
     new Vue({
       el: '#app',
-      data: {},
+      data: {
+
+      },
       methods: {
-        redirectToDashboard() {
-          window.location = 'dashboard.html'
+        logout() {
+          localStorage.removeItem('token')
+          window.location = '/'
         }
       },
       created() {
-        if(localStorage.getItem('token')) {
-          window.location = 'dashboard.html'
+        if (!localStorage.getItem('token')) {
+          window.location = '/'
         }
       }
     })
