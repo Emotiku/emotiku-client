@@ -27,21 +27,65 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="javascript:void()" data-toggle="modal" data-target="test-modal">
+              <a class="nav-link js-scroll-trigger" href="javascript:void()" @click="redirectToDashboard">
                 <i class="fa fa-sign-in-alt fa-lg"></i>
-                LOGIN
+                login
               </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-    <section class="dashboard">
-        <div class="container">
-          <post-management></post-management>
+
+    <section class="auth-section">
+      <div class="container">
+
+        <div class="auth-content">
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login-content" role="tab">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="register-tab" data-toggle="tab" href="#register-content" role="tab">Register</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-3" id="myTabContent">
+            <div class="tab-pane active" id="login-content" role="tabpanel">
+              <form>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Login">
+              </form>
+            </div>
+            <div class="tab-pane fade" id="register-content" role="tabpanel">
+              <form>
+                <div class="form-group">
+                  <label for="email">Name</label>
+                  <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" name="password">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Register">
+              </form>
+            </div>
+          </div>
         </div>
+
+      </div>
     </section>
-    <selected-post></selected-post>
+
     <footer class="footer-emotiku text-white">
       <div class="container">
         <div class="d-flex justify-content-around align-center">
@@ -59,7 +103,17 @@
   <script>
     new Vue({
       el: '#app',
-      data: {}
+      data: {},
+      methods: {
+        redirectToDashboard() {
+          window.location = 'dashboard.html'
+        }
+      },
+      // created() {
+      //   if(localStorage.getItem('token')) {
+      //     window.location = 'dashboard.html'
+      //   }
+      // }
     })
   </script>
 </body>
