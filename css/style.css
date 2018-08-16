@@ -1,0 +1,67 @@
+.dashboard {
+  padding-top: 80px;
+}
+
+.dashboard .container {
+  padding: 0;
+}
+
+.navbar-brand {
+  font-family: "Lobster", cursive;
+  text-transform: capitalize;
+  font-size: 24px;
+}
+
+.navbar-emotiku {
+  background: linear-gradient(to bottom right, #783a93, #A3487D);
+}
+
+.card {
+  border: none;
+}
+
+.card-img-container {
+  height: 360px;
+  max-width: 576px;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-img-container {
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+}
+
+.card-body .card-date {
+  font-size: 10px;
+}
+
+.footer-emotiku {
+  background: linear-gradient(to bottom right, #A3487D,  #783a93);
+  padding: 20px;
+}
+
+@media (min-width: 992px) {
+  .dashboard {
+    padding-top: 90px;
+  }
+  nav a {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 576px) {
+  .card {
+    min-width: 250px;
+    max-width: 576px;
+    border: 1px solid #eee
+  }
+/* 
+  .card-img-container {
+    min-width: 250px;
+    max-width: 576px;
+  } */
+}
