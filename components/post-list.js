@@ -9,7 +9,7 @@ Vue.component('post-list', {
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ post.emotion }}</h5>
-            <p class="card-text card-date"><span class="text-muted text-sm">{{ formatDate(post.createdAt) }}</span></p>
+            <p class="card-text card-date"><span class="text-muted text-sm">{{ formatDate(post.user.createdAt) }}</span></p>
           </div>
         </div>
       </div>
@@ -26,7 +26,7 @@ Vue.component('post-list', {
   methods: {
     openModal: function(post) {
       this.modalState = post
-    }
+    },
   },
   computed: {
     formatDate() {

@@ -27,8 +27,14 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="javascript:void()" data-toggle="modal" data-target="#new-post-modal">
+                <i class="fas fa-images"></i>
+                UPLOAD
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="javascript:void()" @click="logout">
-                  <i class="fas fa-sign-out-alt"></i>
+                <i class="fas fa-sign-out-alt"></i>
                 LOGOUT
               </a>
             </li>
@@ -37,9 +43,9 @@
       </div>
     </nav>
     <section class="dashboard">
-        <div class="container">
-          <post-management></post-management>
-        </div>
+      <div class="container">
+        <post-management ></post-management>
+      </div>
     </section>
     <footer class="footer-emotiku text-white">
       <div class="container">
@@ -48,18 +54,21 @@
         </div>
       </div>
     </footer>
+    <new-post></new-post>
   </div>
   <script src="./js/jquery.js"></script>
   <script src="./js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="./components/post-management.js"></script>
   <script src="./components/post-list.js"></script>
   <script src="./components/selected-post.js"></script>
+  <script src="./components/new-post.js"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        
+
       },
       methods: {
         logout() {
@@ -68,9 +77,9 @@
         }
       },
       created() {
-          if(!localStorage.getItem('token')) {
-              window.location = '/'
-          } 
+        // if (!localStorage.getItem('token')) {
+        //   window.location = '/'
+        // }
       }
     })
   </script>
