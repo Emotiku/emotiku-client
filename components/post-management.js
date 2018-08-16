@@ -3,7 +3,6 @@ Vue.component('post-management', {
     `
         <div>
             <post-list :posts="data"></post-list>
-            <selected-post :images="data"></selected-post>
         </div>
     `,
     data() {
