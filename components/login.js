@@ -25,16 +25,19 @@ Vue.component("login", {
   },
   methods: {
     login() {
-        $.post('/users/login', {
+        $.post('http://35.240.209.66/users/login', {
             name: this.name,
             email: this.email,
             password: this.password    
         })
         .done(data => {
-            localStorage.setItem('token', data.token)
-            window.location = 'dashboard.html'
+            if(data.token) {
+              localStorage.setItem('token', data.token)
+              window.location = 'dashboard.html'
+            }
+            alert(data.message)
         })
-        .fail(err => console.log(err))
+        .fail(err => alert(err.message))
     }
   }
 });

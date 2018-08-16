@@ -31,15 +31,18 @@ Vue.component('register', {
     },
     methods: {
         register() {
-            $.post('/users/register', {
+            $.post('http://35.240.209.66/users/register', {
                 name: this.name,
                 email: this.email,
                 password: this.password    
             })
             .done(data => {
                 alert(data.message)
+                window.location = '/'
             })
-            .fail(err => console.log(err))
+            .fail(err => {
+                alert(err.message)
+            })
         }
     }
 })
