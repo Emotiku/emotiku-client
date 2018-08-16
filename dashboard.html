@@ -85,9 +85,9 @@
         }
       },
       created() {
-        // if (!localStorage.getItem('token')) {
-        //   window.location = '/'
-        // }
+        if (!localStorage.getItem('token')) {
+          window.location = '/'
+        }
       }
     })
   </script>
