@@ -1,24 +1,28 @@
-Vue.component('post-management', {
-    template: 
-    `
+Vue.component("post-management", {
+  template: `
         <div>
             <post-list :posts="data"></post-list>
-            <new-post></new-post>
         </div>
     `,
-    data() {
-        return {
-            data: [],
+  data() {
+    return {
+      data: []
+    };
+  },
+  methods: {
+    getPosts() {
+      let self = this;
+      axios
+        .get("http://35.240.209.66/images", {
+          headers: { token: localStorage.getItem("token"),
+          json: true
         }
-    },
-    methods: {
-        getPosts() {
-            $.get('../posts.json')
-            .done(data => this.data = data)
-            .fail(err => console.log(err))
-        }
-    },
-    created() {
-        this.getPosts()
-    },
-})
+        })
+        .then(response => (self.data = response.data.data))
+        .catch(err => console.log(err));
+    }
+  },
+  created() {
+    this.getPosts();
+  }
+});
