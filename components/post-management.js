@@ -3,6 +3,7 @@ Vue.component('post-management', {
     `
         <div>
             <post-list :posts="data"></post-list>
+            <new-post></new-post>
         </div>
     `,
     data() {
@@ -11,11 +12,13 @@ Vue.component('post-management', {
         }
     },
     methods: {
-        
-    },
-    created() {
-        $.get('../posts.json')
+        getPosts() {
+            $.get('../posts.json')
             .done(data => this.data = data)
             .fail(err => console.log(err))
+        }
+    },
+    created() {
+        this.getPosts()
     },
 })
