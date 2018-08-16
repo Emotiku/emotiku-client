@@ -70,11 +70,11 @@
           window.location = 'dashboard.html'
         }
       },
-      // created() {
-      //   if(localStorage.getItem('token')) {
-      //     window.location = 'dashboard.html'
-      //   }
-      // }
+      created() {
+        if(localStorage.getItem('token')) {
+          window.location = 'dashboard.html'
+        }
+      }
     })
   </script>
 </body>

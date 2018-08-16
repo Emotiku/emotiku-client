@@ -4,7 +4,7 @@ Vue.component('post-list', {
     <div>
       <div class="card-deck">
         <div v-for="post in posts" class="card mb-3">
-          <div class="card-img-container" data-toggle="modal" data-target="#modalImage" @click="openModal(post.url)">
+          <div class="card-img-container" data-toggle="modal" data-target="#modalImage" @click="openModal(post)">
             <img class="card-img-top" :src="post.url" alt="image alt">
           </div>
           <div class="card-body">
