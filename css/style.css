@@ -50,6 +50,9 @@
   font-size: 10px;
 }
 
+#modalImage .modal-dialog {
+  width: 400px;
+}
 .footer-emotiku {
   background: linear-gradient(to bottom right, #A3487D,  #783a93);
   padding: 20px;
