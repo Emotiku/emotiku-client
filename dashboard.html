@@ -27,9 +27,9 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="javascript:void()" data-toggle="modal" data-target="test-modal">
-                <i class="fa fa-sign-in-alt fa-lg"></i>
-                LOGIN
+              <a class="nav-link js-scroll-trigger" href="javascript:void()" @click="logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                LOGOUT
               </a>
             </li>
           </ul>
@@ -59,7 +59,15 @@
   <script>
     new Vue({
       el: '#app',
-      data: {},
+      data: {
+        
+      },
+      methods: {
+        logout() {
+          localStorage.removeItem('token')
+          window.location = '/'
+        }
+      },
       created() {
           if(!localStorage.getItem('token')) {
               window.location = '/'
