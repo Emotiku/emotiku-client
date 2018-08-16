@@ -2,6 +2,7 @@ Vue.component("post-management", {
   template: `
         <div>
             <post-list :posts="data"></post-list>
+            <new-post @imageUploaded="getPosts"></new-post>
         </div>
     `,
   data() {

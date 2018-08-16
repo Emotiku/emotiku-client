@@ -28,6 +28,7 @@ Vue.component("new-post", {
   methods: {
     uploadImage() {
       $('#new-post-modal').modal('hide')
+      let self = this;
       let formData = new FormData()
       formData.append('image', this.image)
       axios
@@ -36,6 +37,7 @@ Vue.component("new-post", {
         })
         .then(response => {
           alert(response.data.message)
+          self.$emit('imageUploaded')
         })
         .catch(err => {
           alert(err.message)
