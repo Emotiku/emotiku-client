@@ -24,16 +24,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="javascript:void()" @click="redirectToDashboard">
-                <i class="fa fa-sign-in-alt fa-lg"></i>
-                login
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
     </nav>
 
@@ -49,37 +39,10 @@
               <a class="nav-link" id="register-tab" data-toggle="tab" href="#register-content" role="tab">Register</a>
             </li>
           </ul>
+
           <div class="tab-content mt-3" id="myTabContent">
-            <div class="tab-pane active" id="login-content" role="tabpanel">
-              <form>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password">
-                </div>
-                <input type="submit" class="btn btn-primary" value="Login">
-              </form>
-            </div>
-            <div class="tab-pane fade" id="register-content" role="tabpanel">
-              <form>
-                <div class="form-group">
-                  <label for="email">Name</label>
-                  <input type="text" class="form-control" name="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" name="password">
-                </div>
-                <input type="submit" class="btn btn-primary" value="Register">
-              </form>
-            </div>
+            <login></login>
+            <register></register>
           </div>
         </div>
 
@@ -97,9 +60,8 @@
   <script src="./js/jquery.js"></script>
   <script src="./js/bootstrap.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <script src="./components/post-management.js"></script>
-  <script src="./components/post-list.js"></script>
-  <script src="./components/selected-post.js"></script>
+  <script src="./components/login.js"></script>
+  <script src="./components/register.js"></script>
   <script>
     new Vue({
       el: '#app',
